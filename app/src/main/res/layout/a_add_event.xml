@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    tools:context=".eventClasses.AddEvent">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvTitle"
+        style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_gravity="center"
+        android:background="@drawable/gradient"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_create"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/add_event_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_photo"
+                />
+
+
+            <EditText
+                android:id="@+id/event_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="28sp"
+                android:hint="Event Name"
+                android:layout_marginTop="10dp"
+                android:inputType="textPersonName"
+                android:textColor="#000"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                />
+            <EditText
+                android:id="@+id/short_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:hint="short description"
+                android:layout_marginTop="10dp"
+                android:inputType="textPersonName"
+                android:textColor="#000"
+                android:layout_marginStart="10dp"
+                android:fontFamily="monospace"
+                />
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                app:cardCornerRadius="15dp"
+                app:cardBackgroundColor="@color/colorAccent"
+                app:cardElevation="0dp"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_margin="1dp"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="0dp"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        tools:ignore="HardcodedText"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/RegistrationFee"
+                            android:textSize="20sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_rupee"
+                            android:inputType="textPersonName"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="2dp"
+                            android:padding="10dp"
+                            android:drawablePadding="10dp"
+                            android:hint="Registration Fee" />
+
+
+                        <EditText
+                            android:id="@+id/dates"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_date_range_black_24dp"
+                            android:layout_marginStart="10dp"
+                            android:padding="10dp"
+                            android:inputType="textPersonName"
+                            android:hint="Date and Duration"
+                            android:drawablePadding="10dp"
+                            android:textSize="22sp"
+
+                            />
+
+                        <EditText
+                            android:id="@+id/timings"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableStart="@drawable/ic_access_time_black_24dp"
+                            android:textSize="22sp"
+                            android:drawablePadding="10dp"
+                            android:padding="10dp"
+                            android:hint="Timings"
+                            android:inputType="textPersonName"
+                            android:layout_marginStart="10dp"
+
+                            />
+
+                        <EditText
+                            android:id="@+id/event_venue"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="22sp"
+                            android:padding="10dp"
+                            android:drawablePadding="10dp"
+                            android:hint="Venue"
+                            android:inputType="textPersonName"
+                            android:drawableStart="@drawable/ic_location"
+                            android:layout_marginStart="10dp"
+                            />
+
+                        <EditText
+                            android:id="@+id/prize_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="22sp"
+                            android:padding="10dp"
+                            android:hint="Prizes (Optional)"
+                            android:inputType="textPersonName"
+                            android:drawablePadding="10dp"
+                            android:drawableStart="@drawable/ic_trophy"
+                            android:layout_marginStart="10dp"
+
+                            />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="Description"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                />
+            <EditText
+                android:id="@+id/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColor="#000"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:autoLink="all"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button_create"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@color/colorAccent"
+        android:text="@string/create_event"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="#fff"
+        android:onClick="createEvent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:contentDescription="back"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.007"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        android:onClick="finish"
+        app:srcCompat="@drawable/ic_arrow_left_" />
+
+
+</android.support.constraint.ConstraintLayout>
