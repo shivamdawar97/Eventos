@@ -8,4 +8,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="organized">Organized</string>
     <string name="create_event">Add Event</string>
+    <string name="otp">A six digit OTP is send to your mobile number. Enter the code below to verify</string>
 </resources>

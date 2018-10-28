@@ -59,7 +59,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0"
-        android:layout_margin="30dp"
+        android:layout_margin="20dp"
         android:scrollbars="none"
         android:overScrollMode="never"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,11 +69,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <FrameLayout
                 android:id="@+id/frameLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_marginBottom="8dp"
 
@@ -88,6 +87,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
                 android:text="or"
+                android:visibility="gone"
                 android:textColor="#000"
                 android:textSize="20sp" />
 
@@ -97,6 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
+                android:visibility="gone"
                 android:orientation="horizontal"
                 android:weightSum="10">
 
@@ -120,4 +121,19 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/login_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:indeterminate="true"
+        android:background="#66000000"
+        android:padding="150dp"
+        android:visibility="invisible"
+        android:indeterminateTint="@color/colorPrimary"
+        android:max="100"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

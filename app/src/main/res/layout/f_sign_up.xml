@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linear"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="30dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="30dp"
+    android:layout_marginEnd="30dp"
+    android:paddingBottom="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".LogInClasses.SignIn">
@@ -17,8 +20,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:drawableStart="@drawable/ic_man_user"
-            android:hint="Email"
-            android:padding="20dp"
+            android:hint="Name"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:gravity="center|start"
             android:drawablePadding="5dp"
@@ -32,21 +34,19 @@
         android:layout_gravity="center"
         android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:drawableStart="@drawable/email_ic"
-            android:hint="Email"
-            android:padding="20dp"
+            android:drawableStart="@drawable/call_ic"
+            android:hint="Phone"
+            android:maxLength="10"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:gravity="center|start"
             android:drawablePadding="5dp"
-            android:paddingStart="5dp"
-            android:inputType="textEmailSubject"
+            android:inputType="phone"
             />
     </android.support.design.widget.TextInputLayout>
-
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -54,15 +54,14 @@
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:drawablePadding="5dp"
-            android:paddingStart="5dp"
-            android:padding="20dp"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:gravity="center|start"
+            android:maxLength="8"
             android:drawableStart="@drawable/key_ic"
             android:inputType="textPassword"
             android:hint="Password" />
@@ -74,13 +73,12 @@
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/c_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:maxLength="8"
             android:drawablePadding="5dp"
-            android:paddingStart="5dp"
-            android:padding="20dp"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:gravity="center|start"
             android:drawableStart="@drawable/key_ic"
@@ -94,13 +92,20 @@
         app:cardBackgroundColor="@color/colorPrimaryDark"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="30dp"
+      android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="15dp"
         app:cardCornerRadius="10dp">
         <Button
+            android:id="@+id/btn_sign"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign IN"
-            android:padding="20dp"
+            android:text="Sign Up"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:fontFamily="serif"
+            android:padding="5dp"
+            android:onClick="doSignUp"
             android:background="@android:color/transparent"
             android:textColor="#fff"/>
 
