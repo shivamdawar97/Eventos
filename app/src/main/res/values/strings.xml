@@ -9,4 +9,6 @@
     <string name="organized">Organized</string>
     <string name="create_event">Add Event</string>
     <string name="otp">A six digit OTP is send to your mobile number. Enter the code below to verify</string>
+    <string name="charge">"Standard charges may apply for verification."</string>
+    <string name="phnVrfy">Verify Phone Number</string>
 </resources>

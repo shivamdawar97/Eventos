@@ -3,15 +3,15 @@
     android:fillAfter="true"
     android:repeatMode="reverse"
     >
-
-    <scale
-        android:duration="150"
-        android:fromXScale="0.0"
-        android:fromYScale="0.0"
-        android:toXScale="1.0"
-        android:toYScale="1.0"
-
-        />
+    <alpha
+        android:fromAlpha="0"
+        android:toAlpha="1"
+        android:duration="600" >
+    </alpha>
+    <translate
+        android:duration="200"
+        android:fromXDelta="100%"
+        android:toXDelta="0" />
 
 
 </set>

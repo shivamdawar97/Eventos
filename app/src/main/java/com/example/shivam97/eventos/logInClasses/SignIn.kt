@@ -1,4 +1,4 @@
-package com.example.shivam97.eventos.LogInClasses
+package com.example.shivam97.eventos.logInClasses
 
 
 import android.os.Bundle
