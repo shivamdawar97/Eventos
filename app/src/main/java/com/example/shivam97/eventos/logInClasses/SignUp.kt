@@ -30,6 +30,7 @@ import java.util.concurrent.TimeUnit
 class SignUp : Fragment() {
     private lateinit var mCallbacks : PhoneAuthProvider.OnVerificationStateChangedCallbacks
    private lateinit var  phone: String;  private lateinit var  name: String
+    lateinit var email:String;lateinit var pass:String
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -44,6 +45,7 @@ class SignUp : Fragment() {
                 setProgress(false)
             }
 
+
             override fun onVerificationFailed(e: FirebaseException?) {
                setProgress(false)
                 Log.w(Constraints.TAG, "onVerificationFailed", e)
@@ -56,10 +58,13 @@ class SignUp : Fragment() {
             override fun onCodeSent(verificationId: String?, token: PhoneAuthProvider.ForceResendingToken?) {
                 super.onCodeSent(verificationId, token)
                 activity?.finish()
+                Toast.makeText(context,"code sent",Toast.LENGTH_LONG).show()
                 val i=Intent(context,AccSetup::class.java)
                 i.putExtra("id",verificationId)
                 i.putExtra("phn",phone)
                 i.putExtra("name",name)
+                i.putExtra("email",email)
+                i.putExtra("pass",pass)
                 startActivity(i)
             }
 
@@ -72,13 +77,19 @@ class SignUp : Fragment() {
 
         name = v?.user_name?.text.toString()
         phone = v?.phone?.text.toString()
-        val pass:String = v?.pass?.text.toString()
+        pass = v?.pass?.text.toString()
+        email=v?.user_email?.text.toString()
+
         if(TextUtils.isEmpty(name)) {
             v?.user_name?.error = "Required"
             return }
         if(TextUtils.isEmpty(phone))
         {   v?.phone?.error="Required"
             return}
+        if(TextUtils.isEmpty(email)){
+            v?.user_email?.error="Required"
+            return
+        }
         if(TextUtils.isEmpty(pass))
         {   v?.pass?.error="Required"
             return}
@@ -86,7 +97,6 @@ class SignUp : Fragment() {
         {   v?.c_pass?.error="Password doesn't match"
             return
         }
-
         phone="+91$phone"
         verifyPhone(phone)
     }

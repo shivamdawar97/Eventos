@@ -29,6 +29,25 @@
             android:inputType="textEmailSubject"
             />
     </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/user_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:drawableStart="@drawable/email_ic"
+            android:hint="Email"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:gravity="center|start"
+            android:drawablePadding="5dp"
+            android:paddingStart="5dp"
+            android:padding="15dp"
+            android:inputType="textEmailSubject"
+            />
+    </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"

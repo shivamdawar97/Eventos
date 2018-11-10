@@ -33,9 +33,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="call_ic" />
-                            <entry key="sourceFile" value="$PROJECT_DIR$/app/src/main/res/drawable/man-user.svg" />
+                            <entry key="outputName" value="ic_add_user" />
+                            <entry key="sourceFile" value="$PROJECT_DIR$/app/src/main/res/drawable/user.svg" />
                           </map>
                         </option>
                       </PersistentState>
