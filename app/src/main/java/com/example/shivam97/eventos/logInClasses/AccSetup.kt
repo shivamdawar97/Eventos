@@ -56,7 +56,6 @@ abstract class AccSetup : AppCompatActivity() {
                     Toast.makeText(baseContext,"Code doesn't match", Toast.LENGTH_LONG).show()
                 }
             }
-
         }
     }
 
