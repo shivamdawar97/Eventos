@@ -12,7 +12,7 @@ import android.widget.Spinner
 import com.example.shivam97.eventos.R
 import kotlinx.android.synthetic.main.f_user_type.view.*
 import android.widget.ArrayAdapter
-
+import kotlinx.android.synthetic.main.f_user_type.*
 
 
 class UsrTypFrag:Fragment(){
@@ -72,8 +72,6 @@ class UsrTypFrag:Fragment(){
         view.student.setOnClickListener { clickListener }
         view.faculty.setOnClickListener { clickListener }
         view.guest.setOnClickListener { clickListener }
-
-
         return view
     }
 
@@ -95,7 +93,10 @@ class UsrTypFrag:Fragment(){
             if(clg!=0 && userType!=0)(context as AccSetup).setUsrTypAndClg(userType,clg)else null
         }
 
+        skip.setOnClickListener {
 
+            (context as AccSetup).setUsrTypAndClg(0,0)
+        }
     }
 }
 

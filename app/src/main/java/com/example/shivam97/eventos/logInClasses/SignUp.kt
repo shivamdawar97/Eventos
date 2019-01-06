@@ -1,7 +1,5 @@
 package com.example.shivam97.eventos.logInClasses
 
-
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.constraint.Constraints
@@ -19,13 +17,8 @@ import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.a_log_in.*
 import kotlinx.android.synthetic.main.f_sign_up.view.*
-import java.util.concurrent.TimeUnit
 
 class SignUp : Fragment() {
     private lateinit var mCallbacks : PhoneAuthProvider.OnVerificationStateChangedCallbacks
@@ -59,18 +52,24 @@ class SignUp : Fragment() {
                 super.onCodeSent(verificationId, token)
                 activity?.finish()
                 Toast.makeText(context,"code sent",Toast.LENGTH_LONG).show()
-                val i=Intent(context,AccSetup::class.java)
-                i.putExtra("id",verificationId)
-                i.putExtra("phn",phone)
-                i.putExtra("name",name)
-                i.putExtra("email",email)
-                i.putExtra("pass",pass)
-                startActivity(i)
+
+                goToSignIn(verificationId)
+
             }
 
         }
         return v
 
+    }
+
+    private fun goToSignIn(verificationId:String?) {
+        val i=Intent(context,AccSetup::class.java)
+        i.putExtra("id",verificationId)
+        i.putExtra("phn",phone)
+        i.putExtra("name",name)
+        i.putExtra("email",email)
+        i.putExtra("pass",pass)
+        startActivity(i)
     }
 
     private fun checkFields(v: View?) {
@@ -98,34 +97,13 @@ class SignUp : Fragment() {
             return
         }
         phone="+91$phone"
-        verifyPhone(phone)
+        goToSignIn(null)
+       // verifyPhone(phone)
     }
 
     private fun verifyPhone(phone: String) {
         setProgress(true)
-        val refer= FirebaseDatabase.getInstance().reference
-        refer.child("users").orderByChild("phn").equalTo(phone)
-                .addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    if (dataSnapshot.value!=null) {
-                        setProgress(false)
-                        Toast.makeText(context, "Number Already Registered!", Toast.LENGTH_LONG).show()
-                        return
-                    }
-                        else{
-                        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                                phone,        // Phone number to verify
-                                60,                 // Timeout duration
-                                TimeUnit.SECONDS,   // Unit of timeout
-                                context as Activity,               // Activity (for callback binding)
-                                mCallbacks)
-                    }
-            }
 
-            override fun onCancelled(databaseError: DatabaseError) {
-
-            }
-        })
            // OnVerificationStateChangedCallbacks
     }
     fun setProgress(s:Boolean){

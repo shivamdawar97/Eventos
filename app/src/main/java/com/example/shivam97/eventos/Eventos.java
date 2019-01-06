@@ -1,19 +1,50 @@
 package com.example.shivam97.eventos;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.annotation.NonNull;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import java.io.ByteArrayOutputStream;
 
 public class Eventos extends Application {
+
+    public static RequestQueue queue;
+    public static String userID;
+    public static String BASE_URL=" https://eventos-igi.000webhostapp.com";
+
+    public static Eventos EVENTOS;
+
+    public static Eventos getInstance(){
+        if(EVENTOS !=null)
+            return EVENTOS;
+
+        else {
+            EVENTOS =new Eventos();
+            return EVENTOS;
+        }
+    }
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        queue=Volley.newRequestQueue(this);
+        EVENTOS =new Eventos();
+    }
+
+    public static String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        Eventos.userID = userID;
+        SharedPreferences preferences=getSharedPreferences("user",MODE_PRIVATE);
+        SharedPreferences.Editor editor=preferences.edit();
+        editor.putString("userID",userID);
+        editor.apply();
+    }
+
     public static Bitmap getCompressed(Bitmap bitmap){
         try {
             //Decode image size
