@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.preference.PreferenceManager;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import java.io.ByteArrayOutputStream;
@@ -39,10 +41,10 @@ public class Eventos extends Application {
 
     public void setUserID(String userID) {
         Eventos.userID = userID;
-        SharedPreferences preferences=getSharedPreferences("user",MODE_PRIVATE);
-        SharedPreferences.Editor editor=preferences.edit();
-        editor.putString("userID",userID);
-        editor.apply();
+//        SharedPreferences preferences=PreferenceManager.getDefaultSharedPreferences(Eventos.this);
+  //      SharedPreferences.Editor editor=preferences.edit();
+ //       editor.putString("userID",userID);
+  //      editor.apply();
     }
 
     public static Bitmap getCompressed(Bitmap bitmap){

@@ -21,13 +21,13 @@
         android:id="@+id/sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/half_round"
         android:padding="10dp"
         android:paddingStart="20dp"
         android:paddingEnd="30dp"
         android:text="Sign In"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:textColor="#fff"
        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
         android:paddingEnd="30dp"
         android:gravity="end"
         android:textColor="#fff"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/sign_in" />
 
@@ -74,13 +74,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:layout_marginBottom="8dp"
-
+                android:layout_marginBottom="2dp"
                 >
 
             </FrameLayout>
-
-            <TextView
+           <!-- <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -118,7 +116,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@drawable/google_ic" />
-            </LinearLayout>
+            </LinearLayout>-->
+
         </LinearLayout>
     </ScrollView>
 

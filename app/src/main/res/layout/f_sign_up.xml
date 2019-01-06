@@ -19,14 +19,11 @@
             android:id="@+id/user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:drawableStart="@drawable/ic_man_user"
             android:hint="Name"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:gravity="center|start"
             android:drawablePadding="5dp"
-            android:paddingStart="5dp"
-            android:padding="15dp"
             android:inputType="textEmailSubject"
             />
     </android.support.design.widget.TextInputLayout>
@@ -41,11 +38,10 @@
             android:ems="10"
             android:drawableStart="@drawable/email_ic"
             android:hint="Email"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:gravity="center|start"
             android:drawablePadding="5dp"
             android:paddingStart="5dp"
-            android:padding="15dp"
             android:inputType="textEmailSubject"
             />
     </android.support.design.widget.TextInputLayout>
@@ -59,12 +55,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:padding="15dp"
             android:drawableStart="@drawable/call_ic"
             android:hint="Phone"
             android:paddingStart="5dp"
             android:maxLength="10"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:gravity="center|start"
             android:drawablePadding="5dp"
             android:inputType="phone"
@@ -76,16 +71,14 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
         android:layout_height="wrap_content">
         <EditText
             android:id="@+id/pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:padding="15dp"
             android:drawablePadding="5dp"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:gravity="center|start"
             android:maxLength="8"
             android:paddingStart="5dp"
@@ -97,7 +90,6 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
         android:layout_height="wrap_content">
         <EditText
             android:id="@+id/c_pass"
@@ -106,9 +98,8 @@
             android:ems="10"
             android:maxLength="8"
             android:paddingStart="5dp"
-            android:padding="15dp"
             android:drawablePadding="5dp"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:gravity="center|start"
             android:drawableStart="@drawable/key_ic"
             android:inputType="textPassword"
@@ -129,7 +120,7 @@
         android:layout_gravity="center"
       android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         app:cardCornerRadius="10dp">
         <Button
             android:id="@+id/btn_sign"

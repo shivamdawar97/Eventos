@@ -16,8 +16,6 @@ class LogIn : AppCompatActivity() {
         setContentView(R.layout.a_log_in)
         anim= AnimationUtils.loadAnimation(this,R.anim.zoom_in)
         callSignIn(sign_in)
-
-
         sign_in.setOnClickListener {
             view->
            callSignIn(view)
