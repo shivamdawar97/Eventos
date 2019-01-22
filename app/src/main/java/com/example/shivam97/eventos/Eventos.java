@@ -1,22 +1,36 @@
 package com.example.shivam97.eventos;
 
+import android.app.AlertDialog;
 import android.app.Application;
-import android.content.SharedPreferences;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.preference.PreferenceManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import java.io.ByteArrayOutputStream;
 
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class Eventos extends Application {
 
     public static RequestQueue queue;
-    public static String userID;
-    public static String BASE_URL=" https://eventos-igi.000webhostapp.com";
-
+    public static String BASE_URL="https://eventos-igi.000webhostapp.com";
+    public static MyNetworkRequest request;
     public static Eventos EVENTOS;
+    public static SavedPreferences preferences;
+    public static MyRoomDatabase database;
+    public static String userID;
+    public static String TOKEN;
+    private static AlertDialog progressDialog;
+
 
     public static Eventos getInstance(){
         if(EVENTOS !=null)
@@ -33,19 +47,17 @@ public class Eventos extends Application {
         super.onCreate();
         queue=Volley.newRequestQueue(this);
         EVENTOS =new Eventos();
+        request=new MyNetworkRequest();
+        preferences=new SavedPreferences(this);
+     //
+        //  database=MyRoomDatabase.getDatabase(this);
+
+        Retrofit retrofit= new Retrofit.Builder()
+                .baseUrl("http://eventos-igi.000webhostapp.com")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
     }
 
-    public static String getUserID() {
-        return userID;
-    }
-
-    public void setUserID(String userID) {
-        Eventos.userID = userID;
-//        SharedPreferences preferences=PreferenceManager.getDefaultSharedPreferences(Eventos.this);
-  //      SharedPreferences.Editor editor=preferences.edit();
- //       editor.putString("userID",userID);
-  //      editor.apply();
-    }
 
     public static Bitmap getCompressed(Bitmap bitmap){
         try {
@@ -84,5 +96,27 @@ public class Eventos extends Application {
         return null;
     }
 
+    public static void showProgressDialog(Context context)
 
+    {
+        AlertDialog.Builder builder=new AlertDialog.Builder(context);
+        ProgressBar progressBar=new ProgressBar(context);
+        progressBar.setLayoutParams(new ViewGroup.LayoutParams(30,30));
+        //View v= LayoutInflater.from(context).inflate(R.layout.global_progress,null);
+        builder.setView(progressBar);
+
+        progressDialog =builder.create();
+        progressDialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
+
+    }
+
+    public static void hideProgressDialog(){
+        if(progressDialog!=null){
+            progressDialog.dismiss();
+            progressDialog=null;
+        }
+    }
 }

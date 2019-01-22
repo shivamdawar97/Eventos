@@ -2,8 +2,7 @@ package com.example.shivam97.eventos.logInClasses
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.constraint.Constraints
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,17 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
-import com.android.volley.Request
-import com.example.shivam97.eventos.Eventos
-import com.example.shivam97.eventos.MyNetworkRequest
+import androidx.constraintlayout.widget.Constraints
 import com.example.shivam97.eventos.R
-import com.example.shivam97.eventos.eventClasses.AddEvent
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
-import kotlinx.android.synthetic.main.a_acc_setup.*
 import kotlinx.android.synthetic.main.a_log_in.*
 import kotlinx.android.synthetic.main.f_sign_up.view.*
 
@@ -30,7 +25,6 @@ class SignUp : Fragment() {
     private lateinit var mCallbacks : PhoneAuthProvider.OnVerificationStateChangedCallbacks
     private lateinit var  phone: String;  private lateinit var  name: String
     private lateinit var email:String;lateinit var pass:String
-    private var API= "${Eventos.BASE_URL}/api/user/create"
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -59,10 +53,10 @@ class SignUp : Fragment() {
 
             override fun onCodeSent(verificationId: String?, token: PhoneAuthProvider.ForceResendingToken?) {
                 super.onCodeSent(verificationId, token)
+
                 activity?.finish()
                 Toast.makeText(context,"code sent",Toast.LENGTH_LONG).show()
-
-                goToSignIn(verificationId)
+                goToSignIn(verificationId!!)
 
             }
 
@@ -71,46 +65,19 @@ class SignUp : Fragment() {
 
     }
 
-
-    private fun goToSignIn(verificationId:String?) {
-
-            setProgress(true)
-            val body= HashMap<String,String>()
-            body["name"] = name
-            body["email"]=email
-            body["phone"]=phone
-            body["password"]=pass
-
-        MyNetworkRequest().makeRequest(Request.Method.POST,API,body, object : MyNetworkRequest.Callback {
-
-                override fun onSuccessResponse(response: String?) {
-                    val data=SignUpResponse(response)
-                    if (data.status == "login_redirect")
-                    {
-                        Toast.makeText(context,"Account created",
-                                Toast.LENGTH_LONG).show()
-
-                        Eventos.EVENTOS.setUserID(data.userId)
-                        val i=Intent(context,AccSetup::class.java)
-                        i.putExtra("id",verificationId)
-                        activity?.finish()
-                        startActivity(i)
-
-                    }
-                    else
-                        Toast.makeText(context,"Some error occurred while creating you account",
-                                Toast.LENGTH_LONG).show()
-                }
-
-                override fun onFailed(errorResponse: String?) {
-                    Log.e("SignUp Error",errorResponse)
-                }
-
-            })
-
-            setProgress(false)
-
+    private fun goToSignIn(verificationID: String?) {
+        val body= HashMap<String,String>()
+        body["name"] = name
+        body["email"]=email
+        body["phone"]=phone
+        body["password"]=pass
+        val it=Intent(context,AccSetup::class.java)
+        it.putExtra("data",body)
+        it.putExtra("id",verificationID)
+        startActivity(it)
     }
+
+
 
     private fun checkFields(v: View?) {
 
@@ -140,6 +107,8 @@ class SignUp : Fragment() {
         goToSignIn(null)
        // verifyPhone(phone)
     }
+
+
 
     private fun verifyPhone(phone: String) {
         setProgress(true)

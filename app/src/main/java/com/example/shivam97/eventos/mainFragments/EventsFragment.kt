@@ -2,11 +2,12 @@ package com.example.shivam97.eventos.mainFragments
 
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.lifecycle.ViewModelProviders
 
 import com.example.shivam97.eventos.R
 import kotlinx.android.synthetic.main.f_events.view.*
@@ -17,6 +18,8 @@ import kotlinx.android.synthetic.main.f_events.view.*
  */
 class EventsFragment : Fragment() {
 
+    private lateinit var viewModel: EventsViewModel
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -25,5 +28,9 @@ class EventsFragment : Fragment() {
                  R.anim.slide_down))
         return view
     }
-
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProviders.of(this).get(EventsViewModel::class.java)
+        // TODO: Use the ViewModel
+    }
 }// Required empty public constructor

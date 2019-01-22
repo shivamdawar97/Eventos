@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:elevation="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"  >
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp"
+   >
+
+   <TextView
+       android:id="@+id/round_name"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Round 1"
+       android:fontFamily="serif"
+       android:padding="10dp"
+       android:textColor="@android:color/white"
+       android:textSize="22sp"
+       android:background="@color/colorPrimaryDark"
+       />
+
+
+    <GridLayout
+        android:id="@+id/grid_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:paddingStart="10dp"
+        android:paddingEnd="0dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:gravity="center"
+            android:text="Date"
+            android:textColor="@color/heading_color"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/round_dates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:drawableStart="@drawable/ic_date_range_black_24dp"
+            android:drawablePadding="10dp"
+            android:ems="8"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textSize="22sp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:gravity="center"
+            android:text="Timings"
+            android:textColor="@color/heading_color"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/round_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:drawableStart="@drawable/ic_access_time_black_24dp"
+            android:drawablePadding="10dp"
+            android:ems="8"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textSize="22sp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:gravity="center"
+            android:text="Venue"
+            android:textColor="@color/heading_color"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/round_venue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:drawableStart="@drawable/ic_location"
+            android:drawablePadding="10dp"
+            android:ems="8"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textSize="22sp" />
+
+    </GridLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|start"
+        android:gravity="center"
+        android:text="Description"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="@color/heading_color"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+    <EditText
+
+        android:id="@+id/round_desc"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:drawablePadding="10dp"
+        android:inputType="textMultiLine"
+        android:padding="10dp"
+        android:textSize="22sp" />
+
+
+</LinearLayout>
+</FrameLayout>

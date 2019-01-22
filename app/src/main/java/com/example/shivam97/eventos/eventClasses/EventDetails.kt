@@ -1,6 +1,6 @@
 package com.example.shivam97.eventos.eventClasses
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.shivam97.eventos.R
 

@@ -1,8 +1,9 @@
-package com.example.shivam97.eventos.eventClasses
+package com.example.shivam97.eventos.addEventcClasses
+
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
@@ -12,19 +13,43 @@ import kotlinx.android.synthetic.main.a_add_event.*
 import java.io.IOException
 
 class AddEvent : AppCompatActivity() {
+
     private val pICK = 234
     private lateinit var  bitmap:Bitmap
+    private var rounds: ArrayList<RoundLayout>? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.a_add_event)
-
+        rounds= ArrayList()
         add_event_image.setOnClickListener {
             val i = Intent()
             i.type = "image/*"
             i.action = Intent.ACTION_GET_CONTENT
             startActivityForResult(Intent.createChooser(i, "Select An Image"), pICK)
+
         }
+            add_rounds.setOnClickListener {
+
+                rounds!!.add(RoundLayout(this@AddEvent, (rounds!!.size + 1).toString()))
+                no_of_rounds.text=(rounds!!.size).toString()
+                rounds_container.addView(rounds!![rounds!!.size-1])
+
+            }
+
+            remove_rounds.setOnClickListener {
+
+                if(rounds!!.size==0)
+                    return@setOnClickListener
+                rounds!!.removeAt(rounds!!.size-1)
+                no_of_rounds.text= rounds!!.size.toString()
+                rounds_container.removeViewAt(rounds!!.size)
+
+            }
+
     }
+
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -43,18 +68,32 @@ class AddEvent : AppCompatActivity() {
         }
 
     }
-    fun createEvent(view:View){
-        if(checkIfEmpty()){}
-    }
 
-    private fun checkIfEmpty(): Boolean {
+
+    //when button clicked
+    fun createEvent(view:View){
+
         val title=event_title.text.toString()
         val sdesc=short_desc.text.toString()
         val fee=RegistrationFee.text.toString()
-        val date=dates.text.toString()
-        val time=timings.text.toString()
-        val venue=event_venue.text.toString()
         val prize=prize_view.text.toString()
+
+
+        if(title.isEmpty() || sdesc.isEmpty()||fee.isEmpty()||prize.isEmpty() || rounds?.size==0)
+            return
+
+        val eventService=CreateEventService()
+        eventService.name=title
+        eventService.description=sdesc
+        eventService.fees=fee
+        eventService.round_details
+
+
+    }
+
+    private fun checkIfEmpty(): Boolean {
+
+
 
         return true
     }

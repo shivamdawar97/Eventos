@@ -11,7 +11,7 @@
     android:orientation="vertical"
     tools:context=".logInClasses.SignIn">
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:layout_height="wrap_content">
@@ -26,8 +26,8 @@
             android:drawablePadding="5dp"
             android:inputType="textEmailSubject"
             />
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:layout_height="wrap_content">
@@ -44,9 +44,9 @@
             android:paddingStart="5dp"
             android:inputType="textEmailSubject"
             />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:layout_height="wrap_content">
@@ -64,11 +64,11 @@
             android:drawablePadding="5dp"
             android:inputType="phone"
             />
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:layout_height="wrap_content">
@@ -86,8 +86,8 @@
             android:inputType="textPassword"
             android:hint="Password" />
 
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:layout_height="wrap_content">
@@ -105,7 +105,7 @@
             android:inputType="textPassword"
             android:hint="Confirm Password" />
 
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
     <TextView
         android:id="@+id/warning_view"
         android:layout_margin="5dp"
@@ -113,7 +113,7 @@
         android:layout_height="wrap_content"
         android:text="@string/charge"/>
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         app:cardBackgroundColor="@color/colorPrimaryDark"
         android:layout_height="wrap_content"
@@ -134,5 +134,5 @@
             android:background="@android:color/transparent"
             android:textColor="#fff"/>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

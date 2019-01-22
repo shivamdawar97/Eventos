@@ -1,7 +1,7 @@
 package com.example.shivam97.eventos.logInClasses
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,8 +16,9 @@ class OTPFrag : Fragment() {
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.f_otp, container, false)
         view.btn_sub.setOnClickListener {
-            val code= if( view.editText.text !=null) view.editText.text.toString() else ""
-            (context as AccSetup).verifyOTPAndSignIn(code)
+            val code= if( view.editText.text !=null) view.editText.text.toString() else null
+            if(code!=null)
+            (context as AccSetup).verifyOTPAndCreateAcc(code)
         }
         return view
     }

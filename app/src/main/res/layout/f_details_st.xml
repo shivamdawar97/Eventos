@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,7 +26,7 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:textSize="22sp" />
 
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -39,7 +39,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_add_user" />
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
         <TextView
             android:id="@id/user_name"
             android:layout_width="match_parent"
@@ -189,7 +189,7 @@
                 />
 
         </GridLayout>
-        <android.support.v7.widget.CardView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             app:cardBackgroundColor="@color/colorPrimaryDark"
             android:layout_height="wrap_content"
@@ -210,7 +210,7 @@
                 android:background="@android:color/transparent"
                 android:textColor="#fff"/>
 
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 </ScrollView>
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

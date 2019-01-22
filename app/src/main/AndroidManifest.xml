@@ -12,11 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".mainFragments.MainActivity"
             android:label="@string/app_name"
-            android:exported="true"></activity>
+            android:exported="true">
+
+
+        </activity>
+
+
         <activity android:name=".eventClasses.EventDetails" />
-        <activity android:name=".eventClasses.AddEvent" />
+        <activity android:name=".addEventcClasses.AddEvent"
+            android:exported="true"/>
         <activity android:name=".logInClasses.LogIn"
             android:exported="true">
             <intent-filter>

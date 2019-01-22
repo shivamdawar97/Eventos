@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/destination_events">
+
+    <fragment
+        android:id="@+id/destination_me"
+        android:name="com.example.shivam97.eventos.mainFragments.MeFragment"
+        android:label="f_me"
+        tools:layout="@layout/f_me">
+
+    </fragment>
+    <fragment
+        android:id="@+id/destination_events"
+        android:name="com.example.shivam97.eventos.mainFragments.EventsFragment"
+        android:label="f_events"
+        tools:layout="@layout/f_events" >
+        <action
+            android:id="@+id/next_action"
+            app:destination="@id/destination_notify" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_notify"
+        android:name="com.example.shivam97.eventos.mainFragments.NotifyFragment"
+        android:label="f_notify"
+        tools:layout="@layout/f_notify" >
+        <action
+            android:id="@+id/next_action"
+            app:destination="@id/destination_settings" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_settings"
+        android:name="com.example.shivam97.eventos.mainFragments.SettingsFragment"
+        android:label="f_settings"
+        tools:layout="@layout/f_settings" >
+        <action
+            android:id="@+id/next_action"
+            app:destination="@id/destination_me" />
+    </fragment>
+
+</navigation>
