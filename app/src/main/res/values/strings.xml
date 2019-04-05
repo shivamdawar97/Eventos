@@ -12,4 +12,5 @@
     <string name="charge">"Standard charges may apply for verification."</string>
     <string name="phnVrfy">Verify Phone Number</string>
     <string name="add_event">Add Event</string>
+    <string name="back">back</string>
 </resources>

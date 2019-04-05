@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/common_bg"
     android:focusableInTouchMode="true"
-    tools:context=".addEventcClasses.AddEvent">
+    tools:context=".addeventsclasses.AddEvent">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"
@@ -256,28 +256,67 @@
                 android:textSize="20sp" />
 
 
-            <View
+            <LinearLayout
+                android:id="@+id/add_event_organisers"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/round_bg">
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Organizers"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textSize="22sp"
+                android:textColor="#2B2A2A"
+                android:textAlignment="center"
+                />
+
+                <TextView
+                    android:id="@+id/add_event_organisers_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="05"
+                    android:gravity="center|bottom"
+                    android:textSize="20sp"
+                    android:layout_weight="0.1"
+                    android:textColor="#2B2A2A"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_arrow_right"/>
+            </LinearLayout>
+            <Button
+                android:id="@+id/button_create"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/gradient_rounded"
+                android:text="@string/create_event"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="#fff"
+                android:fontFamily="serif"
+                android:onClick="createEvent"
+                android:layout_margin="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+
+
+
+
         </LinearLayout>
     </ScrollView>
 
 
-    <Button
-        android:id="@+id/button_create"
-        android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@drawable/gradient_rounded"
-        android:text="@string/create_event"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textColor="#fff"
-        android:fontFamily="serif"
-        android:onClick="createEvent"
-        android:layout_margin="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-         />
+
 
 
 

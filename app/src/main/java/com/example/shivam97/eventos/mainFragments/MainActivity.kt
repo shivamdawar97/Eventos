@@ -7,7 +7,7 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.example.shivam97.eventos.R
-import com.example.shivam97.eventos.addEventcClasses.AddEvent
+import com.example.shivam97.eventos.addeventsclasses.AddEvent
 import kotlinx.android.synthetic.main.a_main.*
 
 class MainActivity : AppCompatActivity() {

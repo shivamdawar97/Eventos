@@ -6,4 +6,6 @@
     <color name="opaque">#666666ff</color>
     <color name="heading_color">#56b0fc</color>
     <color name="common_bg">#e7f5ff</color>
+    <color name="colorDivider">#1e000000</color>
+
 </resources>

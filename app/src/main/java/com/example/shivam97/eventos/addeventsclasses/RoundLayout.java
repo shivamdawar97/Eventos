@@ -1,4 +1,4 @@
-package com.example.shivam97.eventos.addEventcClasses;
+package com.example.shivam97.eventos.addeventsclasses;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
@@ -11,16 +11,16 @@ import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import com.example.shivam97.eventos.R;
 
 public class RoundLayout extends LinearLayout {
 
-    private TextView roundName;
-    private GridLayout gridName;
+    private TextView roundNo;
+    private LinearLayout gridName;
     boolean collapsed=false;
     private String index;
-    private EditText date,venue,time,desc;
+    private EditText name,date,venue,time,desc;
     private Animation slidDown;
 
     public RoundLayout(Context context,String i) {
@@ -50,17 +50,18 @@ public class RoundLayout extends LinearLayout {
 
         inflate(context, R.layout.event_round_layout,this).startAnimation(slidDown);
 
-        roundName=getRootView().findViewById(R.id.round_name);
-        roundName.setText(String.format("Round %s", index));
+        roundNo =getRootView().findViewById(R.id.round_num);
+        roundNo.setText(String.format("Round %s", index));
         gridName=getRootView().findViewById(R.id.grid_layout);
         date=getRootView().findViewById(R.id.round_dates);
         venue=getRootView().findViewById(R.id.round_venue);
         time=getRootView().findViewById(R.id.round_time);
         desc=getRootView().findViewById(R.id.round_desc);
+        name=getRootView().findViewById(R.id.round_name);
 
         collapse(gridName);
         collapsed=true;
-        roundName.setOnClickListener(new OnClickListener() {
+        roundNo.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(collapsed)
@@ -125,15 +126,21 @@ public class RoundLayout extends LinearLayout {
         collapsed=true;
     }
 
+
     public String getDate() {
         return date.getText().toString();
     }
-
+    public String getName() {
+        return name.getText().toString();
+    }
     public String getVenue() {
         return venue.getText().toString();
     }
-
     public String getTime() {
         return time.getText().toString();
     }
+    public String getDesc() {
+        return desc.getText().toString();
+    }
+
 }

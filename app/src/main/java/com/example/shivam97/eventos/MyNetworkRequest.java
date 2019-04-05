@@ -47,8 +47,9 @@ public class MyNetworkRequest {
                 String finalResponse="";
                 NetworkResponse mResponse=error.networkResponse;
                 if(mResponse!=null && mResponse.data!=null){
+                    finalResponse=String.valueOf(mResponse.statusCode);
                     if(mResponse.statusCode ==400){
-                        finalResponse= new String(mResponse.data);
+                        finalResponse+=(mResponse.data);
                     }
                 }
                 try {
@@ -117,7 +118,6 @@ public class MyNetworkRequest {
 
         queue.add(stringRequest);
     }
-
     public void makeRequest(int method, String url, final String body, final MyNetworkRequest.Callback callback){
 
         StringRequest stringRequest= new StringRequest(method, url, new Response.Listener<String>() {
@@ -167,4 +167,7 @@ public class MyNetworkRequest {
 
         queue.add(stringRequest);
     }
+
+
+
 }

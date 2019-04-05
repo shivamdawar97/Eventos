@@ -22,13 +22,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Eventos extends Application {
 
     public static RequestQueue queue;
-    public static String BASE_URL="https://eventos-igi.000webhostapp.com";
+    public static String BASE_URL="http://eventos-igi.000webhostapp.com";
     public static MyNetworkRequest request;
     public static Eventos EVENTOS;
     public static SavedPreferences preferences;
     public static MyRoomDatabase database;
-    public static String userID;
-    public static String TOKEN;
+
     private static AlertDialog progressDialog;
 
 
@@ -42,6 +41,8 @@ public class Eventos extends Application {
         }
     }
 
+
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -49,7 +50,6 @@ public class Eventos extends Application {
         EVENTOS =new Eventos();
         request=new MyNetworkRequest();
         preferences=new SavedPreferences(this);
-     //
         //  database=MyRoomDatabase.getDatabase(this);
 
         Retrofit retrofit= new Retrofit.Builder()
@@ -57,7 +57,6 @@ public class Eventos extends Application {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
-
 
     public static Bitmap getCompressed(Bitmap bitmap){
         try {

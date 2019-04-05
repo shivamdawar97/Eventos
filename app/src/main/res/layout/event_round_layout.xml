@@ -14,7 +14,7 @@
    >
 
    <TextView
-       android:id="@+id/round_name"
+       android:id="@+id/round_num"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:text="Round 1"
@@ -25,14 +25,44 @@
        android:background="@color/colorPrimaryDark"
        />
 
+<LinearLayout
+    android:id="@+id/grid_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
 
     <GridLayout
-        android:id="@+id/grid_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="2"
         android:paddingStart="10dp"
         android:paddingEnd="0dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:gravity="center"
+            android:text="Name"
+            android:textColor="@color/heading_color"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/round_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:drawablePadding="10dp"
+            android:ems="8"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textSize="22sp"
+
+            />
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -131,6 +161,6 @@
         android:padding="10dp"
         android:textSize="22sp" />
 
-
+</LinearLayout>
 </LinearLayout>
 </FrameLayout>

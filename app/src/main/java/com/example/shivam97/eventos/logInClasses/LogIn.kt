@@ -1,10 +1,13 @@
 package com.example.shivam97.eventos.logInClasses
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import com.example.shivam97.eventos.Eventos.preferences
 import com.example.shivam97.eventos.R
+import com.example.shivam97.eventos.mainFragments.MainActivity
 import kotlinx.android.synthetic.main.a_log_in.*
 
 class LogIn : AppCompatActivity() {
@@ -14,6 +17,13 @@ class LogIn : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.a_log_in)
+
+        if(preferences.token!=null)
+        {
+            startActivity(Intent(this,MainActivity::class.java))
+            finish()
+        }
+
         anim= AnimationUtils.loadAnimation(this,R.anim.zoom_in)
         callSignIn(sign_in)
         sign_in.setOnClickListener {
@@ -33,6 +43,8 @@ class LogIn : AppCompatActivity() {
                     .setCustomAnimations(R.anim.f_anim,0)
                     .replace(R.id.frameLayout,SignUp()).commit()
         }
+
+
     }
 
     private fun callSignIn(view: View?) {
